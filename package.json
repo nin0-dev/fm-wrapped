@@ -1,0 +1,8 @@
+{
+  "name": "fm-wrapped",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "dependencies": {
+    "fastify": "^5.2.0"
+  }
+}

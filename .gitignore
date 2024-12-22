@@ -1,0 +1,4 @@
+dist/
+database.db
+.env
+node_modules/
