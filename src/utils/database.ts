@@ -16,6 +16,7 @@ interface Database {
 
 interface WrappedInfoTable {
     username: string;
+    lastPreparedTime: string;
 }
 
 export type WrappedInfo = Selectable<WrappedInfoTable> &
@@ -28,3 +29,10 @@ const dialect = new SqliteDialect({
 export const db = new Kysely<Database>({
     dialect
 });
+
+db.schema
+    .createTable("wrappedInfo")
+    .addColumn("username", "text", cb => cb.notNull())
+    .addColumn("lastPreparedTime", "text", cb => cb.notNull())
+    .ifNotExists()
+    .execute();
