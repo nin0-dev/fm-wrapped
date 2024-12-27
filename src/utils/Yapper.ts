@@ -12,10 +12,10 @@ function getDateTime() {
 
 export class Yapper {
     constructor() {}
-    trace(obj) {
+    trace(obj: any) {
         console.log("\x1b[90;1m TRC\x1b[90;1m \x1b[0;90m", getDateTime(), obj);
     }
-    debug(obj) {
+    debug(obj: any) {
         console.log(
             "\x1b[90;1;47m DBG",
             `\x1b[0m \x1b[90m${getDateTime()}`,
@@ -23,28 +23,28 @@ export class Yapper {
             "\x1b[0m"
         );
     }
-    info(obj) {
+    info(obj: any) {
         console.log(
             "\x1b[44;1m INF",
             `\x1b[0m \x1b[90m${getDateTime()}\x1b[0m`,
             obj
         );
     }
-    warn(obj) {
+    warn(obj: any) {
         console.log(
             "\x1b[43;1m WRN",
             `\x1b[0m \x1b[90m${getDateTime()}\x1b[0m`,
             obj
         );
     }
-    error(obj) {
+    error(obj: Error) {
         console.log(
             "\x1b[41;1m ERR",
             `\x1b[0m \x1b[90m${getDateTime()}\x1b[0m`,
             obj
         );
     }
-    fatal(obj) {
+    fatal(obj: any) {
         console.log(
             "\x1b[40;31;1m FTL",
             `\x1b[0m \x1b[31;1m${getDateTime()}\x1b[0;31m`,
@@ -55,6 +55,6 @@ export class Yapper {
     child() {
         return new Yapper();
     }
-    level; // unused
-    silent; // unused
+    level: any; // unused
+    silent: any; // unused
 }

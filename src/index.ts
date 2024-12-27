@@ -26,11 +26,13 @@ server.log.debug("Loading routes...");
         }
     });
 
-    await server.listen({ port: 3000 }, async (err, address) => {
-        if (err) {
-            server.log.error(err);
-            process.exit(1);
-        }
-        address && server.log.info(`Server listening at ${address}`);
-    });
+    setTimeout(() => {
+        server.listen({ port: 3000 }, async (err, address) => {
+            if (err) {
+                server.log.error(err);
+                process.exit(1);
+            }
+            address && server.log.info(`Server listening at ${address}`);
+        });
+    }, 100);
 })();
