@@ -44,6 +44,7 @@ export default async function getUserScrobblesForYear(
             limit: 200,
             page: currentPage,
             from: new Date(`${year}-01-01T00:00:00Z`).getTime() / 1000,
+            to: new Date(`${year}-12-31T23:59:59Z`).getTime() / 1000,
             extended: true
         });
 
