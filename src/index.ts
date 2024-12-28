@@ -3,7 +3,8 @@ import { Yapper } from "./utils/Yapper";
 import { readdir } from "fs/promises";
 
 const server = Fastify({
-    loggerInstance: new Yapper()
+    // @ts-ignore fuck you
+    logger: false
 });
 
 server.log.debug("Loading routes...");
@@ -34,5 +35,5 @@ server.log.debug("Loading routes...");
             }
             address && server.log.info(`Server listening at ${address}`);
         });
-    }, 100);
+    }, 500);
 })();

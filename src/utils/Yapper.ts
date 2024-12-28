@@ -13,22 +13,29 @@ function getDateTime() {
 export class Yapper {
     constructor() {}
     trace(obj: any) {
-        console.log("\x1b[90;1m TRC\x1b[90;1m \x1b[0;90m", getDateTime(), obj);
+        if (process.env.NODE_ENV === "development")
+            console.log(
+                "\x1b[90;1m TRC\x1b[90;1m \x1b[0;90m",
+                getDateTime(),
+                obj
+            );
     }
     debug(obj: any) {
-        console.log(
-            "\x1b[90;1;47m DBG",
-            `\x1b[0m \x1b[90m${getDateTime()}`,
-            obj,
-            "\x1b[0m"
-        );
+        if (process.env.NODE_ENV === "development")
+            console.log(
+                "\x1b[90;1;47m DBG",
+                `\x1b[0m \x1b[90m${getDateTime()}`,
+                obj,
+                "\x1b[0m"
+            );
     }
     info(obj: any) {
-        console.log(
-            "\x1b[44;1m INF",
-            `\x1b[0m \x1b[90m${getDateTime()}\x1b[0m`,
-            obj
-        );
+        if (process.env.NODE_ENV === "development")
+            console.log(
+                "\x1b[44;1m INF",
+                `\x1b[0m \x1b[90m${getDateTime()}\x1b[0m`,
+                obj
+            );
     }
     warn(obj: any) {
         console.log(

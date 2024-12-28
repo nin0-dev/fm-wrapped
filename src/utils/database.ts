@@ -17,6 +17,7 @@ interface Database {
 interface WrappedInfoTable {
     username: string;
     lastPreparedTime: string;
+    year: number;
 }
 
 export type WrappedInfo = Selectable<WrappedInfoTable> &
@@ -34,5 +35,6 @@ db.schema
     .createTable("wrappedInfo")
     .addColumn("username", "text", cb => cb.notNull())
     .addColumn("lastPreparedTime", "text", cb => cb.notNull())
+    .addColumn("year", "integer", cb => cb.notNull())
     .ifNotExists()
     .execute();
